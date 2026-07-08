@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>To-Do</title>
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="To-Do" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <h1>To-Do</h1>
+    <span id="count" class="count"></span>
+  </header>
+
+  <main>
+    <ul id="active-list" class="list"></ul>
+
+    <details id="done-wrap" hidden>
+      <summary>Done <span id="done-count"></span></summary>
+      <ul id="done-list" class="list"></ul>
+    </details>
+
+    <p id="empty" class="empty" hidden>Nothing yet. Add your first task below.</p>
+  </main>
+
+  <form id="add-form" autocomplete="off">
+    <div class="alarm-row" id="alarm-row" hidden>
+      <input type="datetime-local" id="alarm-input" />
+      <button type="button" id="alarm-clear" aria-label="Remove alarm">✕</button>
+    </div>
+    <div class="input-row">
+      <button type="button" id="alarm-toggle" aria-label="Set alarm" title="Set alarm">⏰</button>
+      <input type="text" id="task-input" placeholder="New task…" enterkeyhint="done" />
+      <button type="submit" id="add-btn" aria-label="Add task">＋</button>
+    </div>
+  </form>
+
+  <div id="sheet-backdrop" hidden>
+    <div id="edit-sheet" role="dialog" aria-label="Edit task">
+      <input type="text" id="edit-title" />
+      <label class="sheet-label">Alarm
+        <input type="datetime-local" id="edit-alarm" />
+      </label>
+      <div class="sheet-actions">
+        <button type="button" id="edit-delete" class="danger">Delete</button>
+        <button type="button" id="edit-cancel">Cancel</button>
+        <button type="button" id="edit-save" class="primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
